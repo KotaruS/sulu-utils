@@ -1,0 +1,15 @@
+.numbered-marker-icon .marker-number {
+  font-size: 0.65rem;
+  left: 50%;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  top: 33.333%;
+  transform: translate(-50%, -50%);
+  width: 3.5ch;
+  height: 3.5ch;
+  background: white;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #2e6c97;
+  border-radius: 9999px;
+}

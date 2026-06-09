@@ -1,0 +1,32 @@
+{
+    "name": "sulu-utils-bundle",
+    "description": "Some quality of life updates and new features for Sulu",
+    "license": "MIT",
+    "repository": "https://github.com/KotaruS/sulu-utils.git",
+    "dependencies": {
+        "@ckeditor/ckeditor5-core": "^48.1.0",
+        "@ckeditor/ckeditor5-utils": "^48.1.0",
+        "@ckeditor/ckeditor5-html-support": "^48.1.0",
+        "@ckeditor/ckeditor5-ui": "^48.1.0",
+        "react-color": "^2.14.1",
+        "debounce": "^1.0.2 || ^2.0.0",
+        "fast-deep-equal": "^3.1.1",
+        "classnames": "^2.2.5",
+        "leaflet": "^1.5.1",
+        "jexl": "^2.1.0",
+        "react-leaflet": "^3.2.0"
+    },
+    "devDependencies": {
+        "sulu-admin-bundle": "file:../../../AdminBundle/Resources/js",
+        "sulu-media-bundle": "file:../../../MediaBundle/Resources/js",
+        "sulu-location-bundle": "file:../../../LocationBundle/Resources/js"
+    },
+    "peerDependencies": {
+        "mobx": "^4.0.0",
+        "mobx-react": "^5.0.0",
+        "react": "^16.2.0 || ^17.0.0",
+        "sulu-admin-bundle": "*",
+        "sulu-media-bundle": "*",
+        "sulu-location-bundle": "*"
+    }
+}

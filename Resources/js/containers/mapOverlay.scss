@@ -1,0 +1,33 @@
+@import 'sulu-admin-bundle/containers/Application/colors.scss';
+@import 'sulu-admin-bundle/containers/Application/variables.scss';
+
+.container {
+    padding: $viewPaddingVertical $viewPaddingHorizontal;
+}
+
+.map {
+    height: 200px;
+    margin-top: -10px;
+
+}
+
+.active-marker {
+    filter: hue-rotate(270deg)
+}
+
+.popup > div:first-of-type > div {
+    margin: 4px;
+}
+
+.delete-button {
+    border: none;
+    border-radius: 8px;
+}
+
+.info-text {
+    color: $scorpion;
+    display: block;
+    font-size: 10px;
+    line-height: 20px;
+    min-height: 20px;
+}

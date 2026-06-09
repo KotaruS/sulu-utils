@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Kotaru\SuluUtils\Entity\Setting" table="ko_settings"
+        repository-class="Kotaru\SuluUtils\Repository\SettingRepository">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="settingKey" column="setting_key" type="string" length="191" unique="true" />
+        <field name="content" column="content" type="json" nullable="true" />
+    </mapped-superclass>
+</doctrine-mapping>

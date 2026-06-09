@@ -1,0 +1,8 @@
+sulu_utils.get_page_translations:
+    path: "/api/translations/{locale}.{_format}"
+    methods: GET
+    controller: "sulu_utils.auth_controller::checkPage"
+    format: json
+    condition: "service('language_checker').isValidLocale(params['locale'])"
+    requirements:
+        _format: json

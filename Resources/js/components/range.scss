@@ -1,0 +1,186 @@
+.range {
+  position: relative;
+  margin: 0 auto;
+}
+
+.range-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.title-min, .title-max {
+  width: 50px;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title-min {
+  left: 0;
+  text-align: end;
+  padding-right: 12px;
+  transform: translateX(-100%);
+
+
+  &::after {
+    content: "";
+    display: block;
+    width: 6px;
+    position: absolute;
+    height: 1px;
+    background: #999;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 4px;
+  }
+}
+
+.title-max {
+  right: 0;
+  text-align: start;
+  padding-left: 12px;
+  transform: translateX(100%);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 6px;
+    position: absolute;
+    height: 1px;
+    background: #999;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4px;
+  }
+}
+
+.range-input {
+  width: 100%;
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min))/var(--range));
+  --sx: calc(var(--ratio)*100%);
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  position: relative;
+  background: transparent;
+  height: 16px;
+  cursor: pointer;
+  border-radius: 0;
+  $thumbcolor: #112a46;
+  $trackcolor: #52b6ca;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 26px;
+    height: 16px;
+    transform: translateY(-5px);
+    margin-top: 0;
+    box-sizing: border-box;
+    border: none;
+    background: $thumbcolor;
+    border-radius: 55rem;
+  }
+
+
+  &::-moz-range-thumb {
+    width: 26px;
+    height: 16px;
+    margin-top: 0;
+    box-sizing: border-box;
+    border: none;
+    background: $thumbcolor;
+    border-radius: 55rem;
+  }
+
+  &::-ms-thumb {
+    width: 26px;
+    height: 16px;
+    margin-top: 0;
+    box-sizing: border-box;
+    border: none;
+    background: $thumbcolor;
+    border-radius: 55rem;
+  }
+
+  &::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 0.5rem;
+    background: #ddd;
+    background: linear-gradient($trackcolor, $trackcolor) 0/var(--sx) 100% no-repeat #ccc;
+  }
+
+  &::-moz-range-track {
+    color: transparent;
+    border-radius: 0.5rem;
+    border: none;
+    height: 6px;
+    background: #ddd;
+  }
+
+  &::-ms-track {
+    color: transparent;
+    border-radius: 0.5rem;
+    border: none;
+    height: 6px;
+    background: #ddd;
+  }
+
+  &::-moz-range-progress {
+    border-radius: 0.5rem;
+    height: 6px;
+    background: $trackcolor;
+  }
+
+  &::-ms-fill-lower {
+    border-radius: 0.5rem;
+    height: 6px;
+    background: $trackcolor;
+  }
+
+  &::-ms-ticks-after {
+    display: none;
+  }
+
+  &::-ms-ticks-before {
+    display: none;
+  }
+
+  &::-ms-tooltip {
+    display: none;
+  }
+}
+
+
+.ticks {
+  display: grid;
+  width: calc((100% - 26px + (100% / var(--stops))) - ((1/var(--stops)) * 26px));
+  transform: translateX(13px);
+  grid-template-columns: repeat(var(--tracks), 1fr);
+
+  p {
+    position: relative;
+    transform: translateX(-50%);
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    grid-column: var(--offset) / span 1;
+    margin: 0;
+    padding: 0;
+    padding-top: 11px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 1px;
+      position: absolute;
+      height: 6px;
+      background: #999;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
