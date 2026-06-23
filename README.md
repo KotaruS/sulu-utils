@@ -4,7 +4,7 @@ PHP 8.3+, Sulu 2.6, Symfony 7.4+
 
 
 ![GitHub release](https://flat.badgen.net/github/release/KotaruS/sulu-utils)
-![Supports Sulu 3.0 or later](https://flat.badgen.net/badge/Sulu/2.6/52B5C9?icon=php)
+![Supports Sulu 2.6 or later](https://flat.badgen.net/badge/Sulu/2.6/52B5C9?icon=php)
 
 ## Installation
 
@@ -12,82 +12,79 @@ This bundle requires PHP 8.3 or later. Make sure to have installed [Node 18](htt
 
 1. Open a command console, enter your project directory and run:
 
-```console
-composer require kotaru/sulu-utils
-```
+  ```console
+  composer require kotaru/sulu-utils
+  ```
+  
+  You'll also need to add the bundle in your `config/bundles.php` file:
 
- 
-You'll also need to add the bundle in your `config/bundles.php` file:
-
-```php
-return [
-    //...
-    Kotaru\SuluUtils\SuluUtilsBundle::class => ['all' => true],
-];
+  ```php
+  return [
+      //...
+      Kotaru\SuluUtils\SuluUtilsBundle::class => ['all' => true],
+  ];
 ```
 
 2. Register the new routes by adding the following to your `config/routes/sulu_utils.yaml`:
 
-```yaml
-sulu_utils:
-    resource: "@SuluUtilsBundle/Resources/config/routing.yaml"
-```
+  ```yaml
+  sulu_utils:
+      resource: "@SuluUtilsBundle/Resources/config/routing.yaml"
+  ```
 
-and also add `config/routes/sulu_utils_admin.yaml`:
+  and also add `config/routes/sulu_utils_admin.yaml`:
 
 
-```yaml
-sulu_utils_api:
-    resource: "@SuluUtilsBundle/Resources/config/routing_api.yaml"
-    prefix: /admin/api
+  ```yaml
+  sulu_utils_api:
+      resource: "@SuluUtilsBundle/Resources/config/routing_api.yaml"
+      prefix: /admin/api
 
 ```
 
 3. Add the file `config/packages/sulu_ai_translator.yaml` with the following configuration:
 
-```yaml
-sulu_utils:
-    location:
-        default_center: [49.7528799, 15.5126953] # default center for the sulu location form field and map_points form field 
-        default_zoom: 8 # default zoom for location and map_points
-    # available styles for ckeditor, label will be automatically translated
-    styles:
-        - {
-              label: "app_admin.styles.button_special",
-              element: "button",
-              classes: ["styled__button--special"],
-          }
-        - {
-              label: "app_admin.styles.button_special_inverse",
-              element: "button",
-              classes: ["styled__button--special-inverse"],
-          }
+  ```yaml
+  sulu_utils:
+      location:
+          default_center: [49.7528799, 15.5126953] # default center for the sulu location form field and map_points form field 
+          default_zoom: 8 # default zoom for location and map_points
+      # available styles for ckeditor, label will be automatically translated
+      styles:
+          - {
+                label: "app_admin.styles.button_special",
+                element: "button",
+                classes: ["styled__button--special"],
+            }
+          - {
+                label: "app_admin.styles.button_special_inverse",
+                element: "button",
+                classes: ["styled__button--special-inverse"],
+            }
 
-```
-
-Via `locale_mapping` you can map a locale key from your webspace to the according [official DeepL target language](https://developers.deepl.com/docs/resources/supported-languages#target-languages). Use value `null` for languages that should not be translatable.
+  ```
 
 4. Reference the frontend code by adding the following to your `assets/admin/package.json`:
 
-```json
-"dependencies": {
-    "sulu-utils-bundle": "file:../../vendor/kotaru/sulu-utils/Resources/js"
-}
-```
+  ```json
+  "dependencies": {
+      "sulu-utils-bundle": "file:../../vendor/kotaru/sulu-utils/Resources/js"
+  }
+  ```
 
 5. Import the frontend code by adding the following to your `assets/admin/app.js`:
 
-```javascript
-import "sulu-utils-bundle";
-```
+  ```javascript
+  import "sulu-utils-bundle";
+  ```
 
 6. Install all npm dependencies and build the admin UI ([see all options](https://docs.sulu.io/en/2.6/cookbook/build-admin-frontend.html)):
 
 ```bash
-cd assets/admin
-npm install
-npm run build
-```
+  cd assets/admin
+  npm install
+  npm run build
+  ```
 
 7. **Enjoy the new features of your Sulu installation!**
 

@@ -1,7 +1,7 @@
 {
     "name": "kotaru/sulu-utils",
     "type": "sulu-utilities",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Collection of utilities and improvements for Sulu 2 CMS",
     "keywords": [
         "sulu",

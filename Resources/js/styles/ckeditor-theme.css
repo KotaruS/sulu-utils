@@ -130,3 +130,47 @@
 	overflow-y: auto;
 	max-height: var(--ck-style-panel-max-height);
 }
+
+.ck-rounded-corners .ck-source-editing-area textarea,
+.ck-source-editing-area textarea.ck-rounded-corners {
+	border-radius: var(--ck-border-radius);
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.ck-source-editing-area {
+	position: relative;
+	overflow: hidden;
+}
+.ck-source-editing-area textarea {
+	border-color: var(--ck-color-base-border);
+	border-radius: 0;
+	box-sizing: border-box;
+	height: 100%;
+	outline: none;
+	overflow: hidden;
+	position: absolute;
+	resize: none;
+	width: 100%;
+}
+.ck-source-editing-area textarea, .ck-source-editing-area::after {
+	border: 1px solid transparent;
+	font-family: monospace;
+	font-size: var(--ck-font-size-normal);
+	line-height: var(--ck-line-height-base);
+	margin: 0;
+	padding: var(--ck-spacing-large);
+	white-space: pre-wrap;
+}
+
+.ck-source-editing-area::after {
+	content: attr(data-value) " ";
+	visibility: hidden;
+	display: block;
+}
+
+.ck-source-editing-area textarea:not([readonly]):focus {
+	border: var(--ck-focus-ring);
+	box-shadow: var(--ck-inner-shadow), 0 0;
+	outline: none;
+}
